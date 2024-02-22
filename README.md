@@ -9,6 +9,7 @@ DegenToken is an ERC20 token contract deployed on the Avalanche network. It allo
 - **Burning**: Allows token holders to burn their tokens.
 - **Transfer Tokens**: Allows token holders to transfer tokens to other addresses.
 - **Balance Inquiry**: Provides a function to check the balance of a token holder.
+- **Redeem**:You can redeem the token from address.
 
 ## Usage
 
@@ -18,6 +19,7 @@ To use the DegenToken contract, you can interact with it using an Ethereum walle
 - **Burning**: Call the `burn` function with the amount of tokens to burn.
 - **Transferring Tokens**: Call the `transferTokens` function with the recipient address and the amount of tokens to transfer.
 - **Balance Inquiry**: Call the `balanceOf` function with the address to check the token balance.
+- **Redeem**: call the `redeem` function with prize id to redeem token.
 
 ## Deployment
 
