@@ -6,6 +6,10 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 contract DegenToken is ERC20 {
     address owner;
 
+    mapping(address => uint256) public prizeSelections;
+
+    event Redemption(address indexed user, uint256 prizeId);
+
     constructor() ERC20("Degen", "DGN") {
         owner = msg.sender;
     }
@@ -30,5 +34,15 @@ contract DegenToken is ERC20 {
     function balanceOf(address account) public view override returns (uint256) {
         return super.balanceOf(account);
     }
+
+    function redeem(uint256 prizeId) public {
+    require(prizeId > 0 && prizeId <= 10, "Invalid prize selection");
+    uint256 balance = balanceOf(msg.sender);
+    require(balance >= prizeId, "Insufficient balance");
+
+    prizeSelections[msg.sender] = prizeId;
+    _burn(msg.sender, prizeId);
+    emit Redemption(msg.sender, prizeId);
+}
 }
 
